@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 module.exports = function (env) {
     return {
         entry: './src/main.js',
@@ -36,11 +37,14 @@ module.exports = function (env) {
                         use:
                             [{
                                 loader: 'css-loader',
-                                options: {url: false, minimize: false}
+                                options: {url: true, import: true}
                             }, {
                                 loader: 'postcss-loader',
                                 options: {
                                     plugins: [
+                                        cssnano({
+                                            preset: 'default',
+                                        }),
                                         autoprefixer({
                                             browsers: ['last 4 version']
                                         })
