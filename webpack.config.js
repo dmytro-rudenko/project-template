@@ -8,7 +8,7 @@ module.exports = function(env) {
     entry: './src/main.js',
     output: {
       path: __dirname + '/',
-      filename: 'js/bundle.js'
+      filename: 'js/bundle.min.js'
     },
     module: {
       rules: [{
@@ -17,7 +17,7 @@ module.exports = function(env) {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', 'minify']
+            presets: ['@babel/preset-env']
           }
         }
       }, {
