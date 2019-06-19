@@ -25,16 +25,8 @@ module.exports = function(env) {
               presets: ['@babel/preset-env']
             }
           }
-        }, {
-          test: require.resolve('jquery'),
-          use: [{
-            loader: 'expose-loader',
-            options: 'jQuery'
-          }, {
-            loader: 'expose-loader',
-            options: '$'
-          }]
-        }, {
+        },
+        {
           test: /\.s?css$/,
           use: ExtractTextPlugin.extract({
             filename: '[name].min.css',
