@@ -3,12 +3,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 module.exports = function(env) {
   return {
     entry: './src/main.js',
     output: {
       path: __dirname + '/',
-      filename: 'js/bundle.js'
+      filename: 'js/bundle.min.js'
     },
     module: {
       rules: [{
@@ -71,7 +72,8 @@ module.exports = function(env) {
     },
     plugins: [
       new ExtractTextPlugin('css/main.min.css'),
-      new VueLoaderPlugin()
+      new VueLoaderPlugin(),
+      new webpack.optimize.UglifyJsPlugin({minimize: true})
     ],
 
   }

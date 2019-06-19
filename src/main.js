@@ -1,9 +1,15 @@
 import 'normalize.css';
 import './scss/main.scss';
 
+import Vue from 'vue';
+import Vuex from 'vuex';
+import axios from 'axios';
 
-import $ from 'jquery';
+import App from './App.vue';
 
-$(function() {
-    console.log( "ready!" );
-});
+new Vue({
+    mounted() {
+
+    },
+    render: h => h(App)
+}).$mount('#layout');
